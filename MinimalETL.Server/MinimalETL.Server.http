@@ -1,0 +1,6 @@
+@MinimalETL.Server_HostAddress = http://localhost:5208
+
+GET {{MinimalETL.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35219.272
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalETL.Server", "MinimalETL.Server\MinimalETL.Server.csproj", "{2EF4378B-7432-45B8-8A3C-72189149D5F8}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "minimaletl.client", "minimaletl.client\minimaletl.client.esproj", "{EF189A6D-57D9-41D9-A155-BFD1AE6A55CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2EF4378B-7432-45B8-8A3C-72189149D5F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EF4378B-7432-45B8-8A3C-72189149D5F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EF4378B-7432-45B8-8A3C-72189149D5F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EF4378B-7432-45B8-8A3C-72189149D5F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF189A6D-57D9-41D9-A155-BFD1AE6A55CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF189A6D-57D9-41D9-A155-BFD1AE6A55CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF189A6D-57D9-41D9-A155-BFD1AE6A55CE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{EF189A6D-57D9-41D9-A155-BFD1AE6A55CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF189A6D-57D9-41D9-A155-BFD1AE6A55CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF189A6D-57D9-41D9-A155-BFD1AE6A55CE}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {80DF0D75-9086-4378-9978-26BF6D40192A}
+	EndGlobalSection
+EndGlobal
