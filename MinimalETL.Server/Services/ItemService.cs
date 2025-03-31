@@ -12,19 +12,23 @@ namespace MinimalETL.Server.Services
 {
     public class ItemService : BaseReadService<IItemRepository, Item, ItemDto>, IItemService
     {
+        private readonly string _basePath;
         public ItemService(
             ILogger<Item> eventLogger, 
             IItemRepository repository, 
-            IMapper mapper
+            IMapper mapper,
+            IConfiguration configuration
             ) : base(eventLogger, repository, mapper)
         {
+            _basePath = configuration.GetSection("Path").Value ?? "";
         }
 
         public async Task<ICollection<ItemDto>> ReadCSVFile(string path)
         {
             List<Item> items = new List<Item>();
 
-            using (StreamReader sr = new StreamReader(path))
+
+            using (StreamReader sr = new StreamReader(_basePath + path))
             {
                 string s;
                 while ((s = sr.ReadLine()) != null)
@@ -46,12 +50,12 @@ namespace MinimalETL.Server.Services
         {
             List<Item> items = new List<Item>();
 
-            using (StreamReader sr = new StreamReader(@"soubor.txt"))
+            using (StreamReader sr = new StreamReader(_basePath + path))
             {
                 string s;
                 while ((s = sr.ReadLine()) != null)
                 {
-                    Console.WriteLine(s);
+                    string[] splitted = s.Split(' ');
                 }
             }
 
@@ -64,7 +68,7 @@ namespace MinimalETL.Server.Services
         public async Task<ICollection<ItemDto>> ReadXMLFile(string path)
         {
             XmlDocument xmlDocument = new XmlDocument();
-            xmlDocument.LoadXml(path);
+            xmlDocument.LoadXml(_basePath + path);
             XmlNode root = xmlDocument.DocumentElement;
             List<Item> items = new List<Item>();
             foreach (XmlNode node in root.ChildNodes)

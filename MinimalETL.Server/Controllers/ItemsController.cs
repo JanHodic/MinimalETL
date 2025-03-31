@@ -10,17 +10,14 @@ namespace MinimalETL.Server.Controllers
     {
 
         private readonly ILogger<ItemsController> _logger;
-        private readonly IHttpContextAccessor _contextAccessor;
         private readonly IItemService _itemService;
 
         public ItemsController(
             ILogger<ItemsController> logger, 
-            IItemService itemService,
-            IHttpContextAccessor contextAccessor)
+            IItemService itemService)
         {
             _logger = logger;
             _itemService = itemService;
-            _contextAccessor = contextAccessor;
         }
 
         [HttpGet]
