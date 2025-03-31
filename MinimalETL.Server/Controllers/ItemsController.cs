@@ -23,6 +23,12 @@ namespace MinimalETL.Server.Controllers
             _contextAccessor = contextAccessor;
         }
 
+        [HttpGet]
+        public async Task<ICollection<ItemDto>> GetAll()
+        {
+            return await _itemService.GetAllAsync();
+        }
+
         [HttpGet("csv")]
         public async Task<ICollection<ItemDto>> ReadCSVFile(string path)
         {

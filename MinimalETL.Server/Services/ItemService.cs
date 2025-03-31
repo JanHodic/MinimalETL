@@ -24,7 +24,17 @@ namespace MinimalETL.Server.Services
         {
             List<Item> items = new List<Item>();
 
-
+            using (StreamReader sr = new StreamReader(path))
+            {
+                string s;
+                while ((s = sr.ReadLine()) != null)
+                {
+                    string[] divided = s.Split(';');
+                    string jmeno = divided[0];
+                    int vek = int.Parse(divided[1]);
+                    DateTime registrovan = DateTime.Parse(divided[2]);
+                }
+            }
 
             var createdIds = await _repository.CreateOrUpdateManyAsync(items);
 
@@ -36,7 +46,14 @@ namespace MinimalETL.Server.Services
         {
             List<Item> items = new List<Item>();
 
-
+            using (StreamReader sr = new StreamReader(@"soubor.txt"))
+            {
+                string s;
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }
+            }
 
             var createdIds = await _repository.CreateOrUpdateManyAsync(items);
 
@@ -72,7 +89,7 @@ namespace MinimalETL.Server.Services
                             XmlElement quantityNodes = (XmlElement)subElement.GetElementsByTagName("itemQty")[0];
                             i.Quantity = int.Parse(quantityNodes.GetAttribute("quantity"));
                             i.Unit = quantityNodes.GetAttribute("unit");
-                            i.UnitPrice = int.Parse(subElement.GetAttribute("costPerUnitNet")));
+                            i.UnitPrice = int.Parse(subElement.GetAttribute("costPerUnitNet"));
                             i.VATPercentage = int.Parse(subElement.GetAttribute("vatRate"));
                             items.Add(i);
                         }
